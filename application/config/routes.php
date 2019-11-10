@@ -57,7 +57,7 @@ $route['default_controller'] = 'security/check';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['login']['post'] = 'login/execute';
-$route['logout'] = 'auth/logout';
+$route['logout'] = 'login/logout';
 
 //methods not allowed
 $route['status405'] = 'rejectRequest/status405';

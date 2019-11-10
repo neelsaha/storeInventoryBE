@@ -9,13 +9,13 @@ class SessSecurity{
         "schoolAdmin" => 4,
         "superAdmin" => 5
     );
-    public function checkSession(&$oStatusCode,$iToken,$iRole = 'student'){
+    public function checkSession(&$oStatusCode,$iToken,$iRole = null){
         TRC_LOG('debug',"REQUEST TYPE :: ".$_SERVER['REQUEST_METHOD']);
-        TRC_LOG('debug',"Inside checkSession");
+        TRC_LOG('debug',">>>>>>> checkSession");
         $aStatus = false;
         //echo ($_SESSION['sessArr']['token']==$iToken);
         if(isset($_SESSION['sessArr']) && isset($_SESSION['sessArr']['token']) && $_SESSION['sessArr']['token'] == $iToken){
-            if($this->checkRole($iRole)){
+            if(!$iRole || $this->checkRole($iRole)){
                 $oStatusCode = 200;
                 $aStatus = true;
             }else{
@@ -27,11 +27,9 @@ class SessSecurity{
         TRC_LOG('debug',"Check status: ".($aStatus?'true':'false')." StatusCode: ".$oStatusCode);
         return $aStatus;
     }
-    public function destroy(){
-        session_destroy();
-    }
+    
     public function getVariableValue($iKey){
-        TRC_LOG('debug',"Inside getVariableValue key: ".$iKey);
+        TRC_LOG('debug',">>>>> getVariableValue key: ".$iKey);
         $aValue = "";
         if(isset($_SESSION['sessArr'][$iKey])){
             $aValue = $_SESSION['sessArr'][$iKey];
