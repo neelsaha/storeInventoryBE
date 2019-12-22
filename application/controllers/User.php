@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$GLOBALS['_FILENAME'] = basename(__FILE__);
 class User extends CI_Controller {
 	public function update(){
         TRC_LOG('debug','Inside update');

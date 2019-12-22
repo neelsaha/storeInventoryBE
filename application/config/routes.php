@@ -58,6 +58,10 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['login']['post'] = 'login/execute';
 $route['logout'] = 'login/logout';
+$route['sales/getTotalItems']['get'] = 'sales/getTotalItems';
+$route['sales/getTotalItems/(.+)']['get'] = 'sales/getTotalItems/$1';
+$route['sales/getTotalSales']['get'] = 'sales/getTotalSales';
+$route['sales/getTotalSales/(.+)']['get'] = 'sales/getTotalSales/$1';
 
 //methods not allowed
 $route['status405'] = 'rejectRequest/status405';
