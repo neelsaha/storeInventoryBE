@@ -3,11 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $GLOBALS['_FILENAME'] = basename(__FILE__);
 class SessSecurity{
     private static $_roles = array(
-        "student" => 1,
-        "parent" => 2,
-        "teacher" => 3,
-        "schoolAdmin" => 4,
-        "superAdmin" => 5
+        "user" => 1,
+        "admin" => 2
     );
     public function checkSession(&$oStatusCode,$iToken,$iRole = null){
         TRC_LOG('debug',"REQUEST TYPE :: ".$_SERVER['REQUEST_METHOD']);
